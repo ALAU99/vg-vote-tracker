@@ -1,6 +1,10 @@
 # vg-vote-tracking
 Vote for your favorite classic video games, app for Code Fellows.
 
+Developed: Alexander Lau, 10/14/2015
+
+================================================================
+
 1. Open index.html
 2. vg-vote-tracker.js runs
 3. User votes for a choice on the left or the right
