@@ -5,6 +5,8 @@ Developed: Alexander Lau, 10/14/2015
 
 ================================================================
 
+Voting Guidelines
+
 1. Open index.html
 2. vg-vote-tracker.js runs
 3. User votes for a choice on the left or the right
@@ -28,3 +30,9 @@ Street Fighter 2
 The Legend of Zelda
 Zelda: Ocarina of Time
 Super Mario 64
+
+================================================================
+
+Add chart.js and clean up code
+
+10/14/2015, Alexander Lau

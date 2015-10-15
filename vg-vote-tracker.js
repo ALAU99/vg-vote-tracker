@@ -1,5 +1,7 @@
-// Get chart id
-var chart = document.getElementById('chart');
+// Get button & canvas id
+var buttonLeft = document.getElementById('leftbutton');
+var buttonRight = document.getElementById('rightbutton');
+var ctx = document.getElementById('chart').getContext('2d');
 
 // Add game data
 var Game = function(gameTitle, gameSource) {
@@ -14,7 +16,7 @@ var Game = function(gameTitle, gameSource) {
   };
 };
 
-// Game data
+// Game files
 var gameFiles = [
   new Game('Goldeneye 007', 'img/007.jpg'),
   new Game('Contra', 'img/contra.jpg'),
@@ -30,6 +32,8 @@ var gameFiles = [
   new Game('Street Fighter 2', 'img/streetfighter.jpg'),
   new Game('The Legend of Zelda', 'img/zelda.gif'),
   new Game('The Legend of Zelda: Ocarina of Time', 'img/zelda.jpg')];
+
+//=================================================================
 
 // Track votes & calculations
 var tracker = {
@@ -66,15 +70,38 @@ tracker.addVote = function(index) {
 
 //=================================================================
 
-// Update chart
+// Chart game data
 tracker.updateChart = function() {
-  var writeImgSrc = '';
+  var data = {
+    labels: label,
+    datasets: dataset
+  };
 
-  for (var i = 0; i < gameFiles.length; i++) {
-    writeImgSrc += 'Votes ' + i + ': ' + this.votes[i] + '<br>';
-  }
+  // Create chart
+  var chart = new Chart(ctx).Bar(data, options);
+};
 
-  chart.innerHTML = writeImgSrc;
+// Chart labels
+var label = [];
+for(var i = 0; i < gameFiles.length; i++) {
+  label.push(gameFiles[i].gameTitle);
+}
+
+// Chart datasets
+var dataset = [{
+  data: tracker.votes,
+  fillColor: 'black',
+  strokeColor: 'black'
+}];
+
+// Chart options
+var options = {
+  scaleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+  scaleFontColor: 'black',
+  scaleShowGridLines: true,
+  scaleGridLineColor: 'black',
+  fillcolor: 'green',
+  animationSteps: 100
 };
 
 //=================================================================
@@ -82,8 +109,8 @@ tracker.updateChart = function() {
 // Load random games from returnRandomGames
 tracker.loadGames = function() {
   tracker.useRandomGames = tracker.returnRandomGames();
-  leftbutton.innerHTML = gameFiles[this.useRandomGames[0]].write();
-  rightbutton.innerHTML = gameFiles[this.useRandomGames[1]].write();
+  buttonLeft.innerHTML = gameFiles[this.useRandomGames[0]].write();
+  buttonRight.innerHTML = gameFiles[this.useRandomGames[1]].write();
   
   // Run updateChart
   this.updateChart();
@@ -92,12 +119,12 @@ tracker.loadGames = function() {
 //=================================================================
 
 // Buttons
-leftbutton.addEventListener('click', function() {
+buttonLeft.addEventListener('click', function() {
   tracker.addVote(tracker.useRandomGames[0]); 
   tracker.loadGames();
 });
 
-rightbutton.addEventListener('click', function() {
+buttonRight.addEventListener('click', function() {
   tracker.addVote(tracker.useRandomGames[1]); 
   tracker.loadGames();
 });
