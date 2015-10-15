@@ -36,3 +36,8 @@ img {
   border: 2px solid black;
   border-radius: 20px;
 }
+
+#chart {
+  position: relative;
+  margin-top: 250px;
+}
