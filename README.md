@@ -35,6 +35,12 @@ Super Mario 64
 
 ================================================================
 
+Update CSS and push to gh-pages
+
+10/15/2015, Alexander Lau
+
+================================================================
+
 Add local storage to app (JSON)
 
 10/15/2015, Alexander Lau

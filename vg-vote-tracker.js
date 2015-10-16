@@ -31,7 +31,7 @@ var gameFiles = [
   new Game('Pac-Man', 'img/pacman.gif'),
   new Game('Street Fighter 2', 'img/streetfighter.jpg'),
   new Game('The Legend of Zelda', 'img/zelda.gif'),
-  new Game('The Legend of Zelda: Ocarina of Time', 'img/zelda.jpg')];
+  new Game('Zelda: Ocarina of Time', 'img/zelda.jpg')];
 
 //=================================================================
 
@@ -115,11 +115,11 @@ var dataset = [{
 
 // Chart options
 var options = {
-  scaleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-  scaleFontColor: 'black',
+  scaleFontFamily: "'Helvetica', 'Arial', sans-serif",
+  scaleFontColor: 'white',
   scaleShowGridLines: true,
   scaleGridLineColor: 'black',
-  fillcolor: 'green',
+  fillcolor: 'black',
   animationSteps: 75
 };
 

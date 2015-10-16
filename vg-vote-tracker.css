@@ -2,34 +2,35 @@ body {
   background-image: url("img/background.png");
 }
 
-h1 {
+header {
   text-align: center;
+  margin-top: 5px;
   color: white;
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 10px;
+}
+
+#buttonset {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 25px;
 }
 
 #leftbutton {
   padding: 10px;
-  display: block;
-  margin-left: 0px;
+  display: inline;
+  margin-left: 100px;
+  border: 2px solid black;
   border-radius: 20px;
 }
 
 #rightbutton {
   padding: 10px;
-  display: inline-block;
-  position: relative;
+  display: inline;
+  float: right;
+  margin-right: 110px;
+  border: 2px solid black;
   border-radius: 20px;
-}
-
-#shuffle {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  border-radius: 20px;
-}
-
-#buttonset {
-  display: block;
 }
 
 img {
@@ -38,6 +39,10 @@ img {
 }
 
 #chart {
-  position: relative;
-  margin-top: 250px;
+  background-image: url("img/background2.jpg");
+  border: 2px solid black;
+  border-radius: 20px;
+  position: block;
+  margin-top: -17px;
+  margin-left: 155px;
 }
