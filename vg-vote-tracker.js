@@ -11,7 +11,7 @@ var Game = function(gameTitle, gameSource) {
   this.write = function() {
     var writeImgSrc = '<img src="' + this.gameSource + '"/>';
 
-    console.log('Left: ' + gameTitle + ' | ' + gameSource); // Test gameTitle & gameSource
+    console.log(gameTitle + ' | ' + gameSource); // Test gameTitle & gameSource
     return writeImgSrc;
   };
 };
@@ -38,11 +38,24 @@ var gameFiles = [
 // Track votes & calculations
 var tracker = {
   votes: Array(gameFiles.length).fill(0),
-
+  
   randomGames: function() {
     return Math.floor(Math.random() * gameFiles.length);
   }
 };
+
+//=================================================================
+
+// Local storage
+var voteStorage;
+
+// Get local storage
+var getVoteStorage = localStorage.getItem('setVoteStorage');
+
+// Parse local storage
+if (localStorage.getItem('setVoteStorage')) {
+  tracker.votes = JSON.parse(getVoteStorage);
+}
 
 //=================================================================
 
@@ -66,6 +79,12 @@ tracker.returnRandomGames = function() {
 // Add vote to game
 tracker.addVote = function(index) {
   this.votes[index] += 1; 
+
+  // Convert JS object to JSON
+  voteStorage = JSON.stringify(this.votes);
+
+  // Set item to local storage
+  localStorage.setItem('setVoteStorage', voteStorage);
 };
 
 //=================================================================
@@ -101,7 +120,7 @@ var options = {
   scaleShowGridLines: true,
   scaleGridLineColor: 'black',
   fillcolor: 'green',
-  animationSteps: 100
+  animationSteps: 75
 };
 
 //=================================================================
@@ -111,7 +130,7 @@ tracker.loadGames = function() {
   tracker.useRandomGames = tracker.returnRandomGames();
   buttonLeft.innerHTML = gameFiles[this.useRandomGames[0]].write();
   buttonRight.innerHTML = gameFiles[this.useRandomGames[1]].write();
-  
+
   // Run updateChart
   this.updateChart();
 };

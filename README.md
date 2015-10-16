@@ -14,7 +14,9 @@ Voting Guidelines
 5. JavaScript stores votes accordingly
 6. User repeats step 3
 
+
 Video Game Options (15):
+
 Goldeneye 007
 Contra
 Doom
@@ -30,6 +32,12 @@ Street Fighter 2
 The Legend of Zelda
 Zelda: Ocarina of Time
 Super Mario 64
+
+================================================================
+
+Add local storage to app (JSON)
+
+10/15/2015, Alexander Lau
 
 ================================================================
 
